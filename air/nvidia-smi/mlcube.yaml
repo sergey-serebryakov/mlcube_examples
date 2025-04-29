@@ -1,0 +1,21 @@
+name: nvidia-smi
+description: Query GPU information using nvidia-smi tool.
+authors:
+  - {name: "Sergey Serebryakov", email: "sergey.serebryakov@hpe.com", org: "Hewlett-Packard Enterprise"}
+
+
+platform:
+  accelerator_count: 8
+
+
+docker:
+  image: air/nvidia-smi:0.0.1
+  gpu_args: "--rm"
+
+
+tasks:
+  nvidia-smi:
+    parameters:
+      inputs:
+      outputs:
+        output_file: {type: file, default: nvidia-smi.csv}

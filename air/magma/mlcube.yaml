@@ -1,0 +1,24 @@
+name: magma linear aglebra testing checks
+description: Run MAGMA matmul tests.
+authors:
+  - {name: "Sergey Serebryakov", email: "sergey.serebryakov@hpe.com", org: "Hewlett-Packard Enterprise"}
+
+
+platform:
+  accelerator_count: 1
+
+
+docker:
+  image: air/magma:0.0.1
+  gpu_args: "--rm"
+
+
+tasks:
+  dgemm:
+    parameters:
+      outputs:
+        output_file: {type: file, default: dgemm.txt}
+  sgemm:
+    parameters:
+      outputs:
+        output_file: {type: file, default: sgemm.txt}

@@ -1,0 +1,21 @@
+name: gpu-check
+description: Check if GPUs are available by trying to place a PyTorch tensor on each of available GPUs.
+authors:
+  - {name: "Sergey Serebryakov", email: "sergey.serebryakov@hpe.com", org: "Hewlett-Packard Enterprise"}
+
+
+platform:
+  accelerator_count: 8
+
+
+docker:
+  image: air/gpu-check:0.0.1
+  gpu_args: "--rm"
+
+
+tasks:
+  gpu-check:
+    parameters:
+      inputs:
+      outputs:
+        output_file: {type: file, default: gpu_check.json}

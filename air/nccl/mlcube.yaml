@@ -1,0 +1,21 @@
+name: nccl
+description: Run NVIDIA NCCL tests
+authors:
+  - {name: "Sergey Serebryakov", email: "sergey.serebryakov@hpe.com", org: "Hewlett-Packard Enterprise"}
+
+
+platform:
+  accelerator_count: 8
+
+
+docker:
+  image: air/nccl:0.0.1
+  gpu_args: "--rm"
+
+
+tasks:
+  all_reduce_perf:
+    parameters:
+      inputs:
+      outputs:
+        output_file: {type: file, default: all_reduce_perf.csv}
